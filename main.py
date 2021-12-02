@@ -1,16 +1,27 @@
-# This is a sample Python script.
-
-# Press Maj+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+calculation_to_hours = 24
+name_of_unit = "hours"
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def days_to_units(number_of_days):
+    return f"{number_of_days} days are {number_of_days * calculation_to_hours} {name_of_unit}"
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def validate_and_execute():
+    try:
+        user_input_number = int(user_input)
+        if user_input_number > 0:
+            calculated_value = days_to_units(user_input_number)
+            print(calculated_value)
+        elif user_input_number == 0:
+            print("you entered a 0, please enter a valid positive number")
+        else:
+            print("you entered a negative number, no conversion for you")
+    except ValueError:
+        print("your input is not a valid number, don't ruin my program!")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+user_input = ""
+while user_input != "exit":
+    user_input = input("Enter a number of days and I will convert it to hours! Or exit to exit\n")
+    validate_and_execute()
+
